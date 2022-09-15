@@ -1,12 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TODO APP</title>
-</head>
-<body>
-  <h1>hai</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block title %}
+TODO
+{% endblock %}
+
+<!-- Style -->
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'index/css/style.css' %}">
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+
+  <!--Navbar Section-->
+  <section class="navbar-section fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+        <a class="navbar-brand pl-2 scroll-trigger" href="#home"><h1>TO<span>DO</span></h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link scroll-trigger" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scroll-trigger" href="{% url 'signup' %}">SignUp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scroll-trigger" href="{% url 'login' %}">LogIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+{% endblock %}

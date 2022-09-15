@@ -1,0 +1,46 @@
+:root {
+  --blue-color: #1d3557;
+  --red-color: #e63946;
+  --white-color: #ffffff;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+  --text-color: #1f1f1f;
+}
+
+/* NavBar section */
+.navbar-section {
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--blue-color);
+}
+.navbar-brand h1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--red-color) !important;
+  font-family: var(--primary-font);
+}
+.navbar-brand span {
+  text-transform: uppercase;
+  color: var(--blue-color) !important;
+  font-family: var(--primary-font);
+}
+.nav-link {
+  font-weight: 600;
+  font-family: var(--secondary-font);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 20px;
+  color: var(--blue-color) !important;
+}
+.nav-link:hover {
+  color: var(--red-color) !important;
+}
+.navbar .navbar-toggler {
+  outline: none !important;
+  border: none !important;
+}
+.fa-bars {
+  color: var(--primary-color);
+}

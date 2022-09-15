@@ -8,3 +8,11 @@ from django.http import HttpResponse
 # Indexpage/Homepage
 def index(request):
   return render(request,"index.html")
+
+# UserSignUp
+def usersignup(request):
+  return HttpResponse("<h1>signuppage</h1>")
+
+# UserLogin
+def userlogin(request):
+  return HttpResponse("<h1>loginpage</h1>")
