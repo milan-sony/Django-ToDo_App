@@ -11,8 +11,8 @@ def index(request):
 
 # UserSignUp
 def usersignup(request):
-  return HttpResponse("<h1>signuppage</h1>")
+  return render(request, "usersignup.html")
 
 # UserLogin
 def userlogin(request):
-  return HttpResponse("<h1>loginpage</h1>")
+  return render(request, "userlogin.html")

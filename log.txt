@@ -1,3 +1,12 @@
 # fonts
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
+
+
+user details:
+
+name
+email
+password
+confirm password
+
