@@ -10,9 +10,9 @@ def index(request):
   return render(request,"index.html")
 
 # UserSignUp
-def usersignup(request):
+def usersignuppage(request):
   return render(request, "usersignup.html")
 
 # UserLogin
-def userlogin(request):
+def userloginpage(request):
   return render(request, "userlogin.html")
