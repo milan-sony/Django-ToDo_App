@@ -12,13 +12,15 @@
 }
 #email-error{
   color: red;
+  font-size: 10px;
 }
 
 /* The message box is shown when the user clicks on the password field */
 #message {
   display:none;
+  margin: 0;
   background: #f1f1f1;
-  padding: 15px;
+  padding: 10px;
 }
 #message h6{
   margin: 0;
@@ -27,4 +29,14 @@
 #message p{
   margin: 0;
   padding-bottom: 10px;
+}
+#eye-icons{
+  position: absolute;
+  margin-left: 270px;
+  margin-top: -30px;
+  cursor: pointer;
+  /* color: lightgray; */
+}
+#eye-icon1{
+  display: none;
 }

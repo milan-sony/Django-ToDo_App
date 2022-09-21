@@ -57,13 +57,13 @@ pswdInput.onblur = function() {
 
 pswdInput.onkeyup = function(){
   if(pswdInput.value.match(strongpswd)){
-    pswdStrength.innerHTML = "Strong";
+    pswdStrength.innerHTML = "Password is strong";
     pswdStrength.style.color = "green";
   }else if(pswdInput.value.match(mediumpswd)){
-    pswdStrength.innerHTML = "Medium";
+    pswdStrength.innerHTML = "password is medium";
     pswdStrength.style.color = "yellow";
   }else{
-    pswdStrength.innerHTML = "Weak";
+    pswdStrength.innerHTML = "password is weak";
     pswdStrength.style.color = "red";
   }
   // Incase a user clears the text, the badge is hidden again
@@ -74,3 +74,33 @@ pswdInput.onkeyup = function(){
     pswdStrength.style.display = "none";
   }
 }
+// Password toggle eye icons
+let eyeIcons = document.getElementById("eye-icons")
+// Password inputfield is already mentioned above
+let eyeIcon1 = document.getElementById("eye-icon1");
+let eyeIcon2 = document.getElementById("eye-icon2")
+
+eyeIcons.onclick = function(){
+  if(pswdInput.type === "password"){
+    // === is used for comparing two variables, but this operator also checks datatype and compares two values.
+    // Compares equality of two operands with their types.
+    pswdInput.type = "text";
+    eyeIcon1.style.display = "block";
+    eyeIcon2.style.display = "none";
+  }else{
+    pswdInput.type = "password";
+    eyeIcon1.style.display = "none";
+    eyeIcon2.style.display = "block";
+  }
+}
+
+
+// Toggle eye icon
+// let passwordField  = document.getElementById("pswd-input");
+// let eyeIcon = document.getElementById("eye-icon")
+
+// eyeIcon.addEventListener("click", function(){
+//   this.classList.toggle("fa-eye-slash");
+//   const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+//   passwordField.setAttribute("type", type);
+// })
