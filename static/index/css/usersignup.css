@@ -5,3 +5,11 @@
   --primary-font: 'Poppins', sans-serif;
   --secondary-font: 'Roboto', sans-serif;
 }
+.card-header h3{
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+}
+#email-Error{
+  color: red;
+}
