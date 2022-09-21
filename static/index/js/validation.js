@@ -1,10 +1,26 @@
 // Email Validation
-function validateEmail(){
+// Method 1
+// function validateEmail(){
 
-  let emailInput = document.getElementById("email-Input");
-  let emailError = document.getElementById("email-Error");
-  let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   let emailInput = document.getElementById("email-Input");
+  //   let emailError = document.getElementById("email-Error");
+  //   let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+  //   if(emailInput.value.match(emailFormat)){
+  //     emailError.innerHTML = "";
+  //     return true;
+  //   }else{
+  //     emailError.innerHTML = "Please enter a valid email";
+  //     return false;
+  //   }
+  // }
 
+// Method 2
+let emailInput = document.getElementById("email-input");
+let emailError = document.getElementById("email-error");
+let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+emailInput.oninput = function(){
   if(emailInput.value.match(emailFormat)){
     emailError.innerHTML = "";
     return true;
@@ -13,62 +29,33 @@ function validateEmail(){
     return false;
   }
 }
-// Password Strong Check
-let pswdInput = document.getElementById("pswd-Input");
-let letter = document.getElementById("letter");
-let capital = document.getElementById("capital");
-let number = document.getElementById("number");
-let length = document.getElementById("length");
-let messages = document.getElementById("messages");
 
-// When the user clicks on the password field, show the message box
-pswdInput.onfocus = function() {
-  messages.style.display = "block";
-}
+// Passwors strength check
+let pswdInput = document.getElementById("pswd-input");
+let pswdStrength = document.getElementById("pswd-strength");
+let strongpswd = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+// a strong level password that has at least one lowercase letter (?=.*[a-z]), one uppercase letter (?=.*[A-Z]), one digit (?=.*[0-9]), one special character (?=.*[^A-Za-z0-9]), and is at least eight characters long(?=.{8,}).
+let mediumpswd = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
+// If the password is at least six characters long and meets all the other requirements, or has no digit but meets the rest of the requirements.
 
-// When the user clicks outside of the password field, hide the message box
-pswdInput.onblur = function() {
-  messages.style.display = "none";
-}
+//  If the password entered does not meet the strong or medium-level requirements, then it is deemed weak
 
-// When the user starts to type something inside the password field
-pswdInput.onkeyup = function() {
-  // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(pswdInput.value.match(lowerCaseLetters)) {  
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
+pswdInput.onkeyup = function(){
+  if(pswdInput.value.match(strongpswd)){
+    pswdStrength.innerHTML = "Strong";
+    pswdStrength.style.color = "green";
+  }else if(pswdInput.value.match(mediumpswd)){
+    pswdStrength.innerHTML = "Medium";
+    pswdStrength.style.color = "yellow";
+  }else{
+    pswdStrength.innerHTML = "Weak";
+    pswdStrength.style.color = "red";
   }
-  
-  // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(pswdInput.value.match(upperCaseLetters)) {  
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
+  // Incase a user clears the text, the badge is hidden again
+  if(pswdInput.value.length !== 0){
+    pswdStrength.style.display = "block";
   }
-
-  // Validate numbers
-  var numbers = /[0-9]/g;
-  if(pswdInput.value.match(numbers)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
-  
-  // Validate length
-  if(pswdInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
+  else{
+    pswdStrength.style.display = "none";
   }
 }
