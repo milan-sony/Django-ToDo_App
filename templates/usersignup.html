@@ -10,7 +10,7 @@
   <!-- Font Awesome CDN -->
   <script src="https://kit.fontawesome.com/259d0ad731.js" crossorigin="anonymous"></script>
   <!-- JQuery CDN -->
-  <script src="{% static 'jquery-3.6.1.min' %}"></script>
+  <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
   <!-- Google Fonts -->
   <link rel="stylesheet" href="{% static 'googlefonts.css' %}">
   <!-- CSS File -->
@@ -39,7 +39,14 @@
             </div>
             <div class="form-group">
               <label for="contact">Create Password</label>
-              <input type="password" name="password" placeholder="Create Your Password" class="form-control" required autocomplete="off">
+              <input type="password" name="password" placeholder="Create Your Password" class="form-control" id="pswd-Input" required autocomplete="off">
+              <div id="messages">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+              </div>
             </div>
             <div class="form-group">
               <label for="contact">Confirm Password</label>
