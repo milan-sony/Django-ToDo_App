@@ -23,10 +23,15 @@ let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 emailInput.oninput = function(){
   if(emailInput.value.match(emailFormat)){
     emailError.innerHTML = "";
-    return true;
   }else{
     emailError.innerHTML = "Please enter a valid email";
-    return false;
+  }
+  // Incase a user clears the text, the badge is hidden again
+  if(emailInput.value.length !== 0){
+    emailError.style.display = "block";
+  }
+  else{
+    emailError.style.display = "none";
   }
 }
 
@@ -37,8 +42,18 @@ let strongpswd = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])
 // a strong level password that has at least one lowercase letter (?=.*[a-z]), one uppercase letter (?=.*[A-Z]), one digit (?=.*[0-9]), one special character (?=.*[^A-Za-z0-9]), and is at least eight characters long(?=.{8,}).
 let mediumpswd = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
 // If the password is at least six characters long and meets all the other requirements, or has no digit but meets the rest of the requirements.
-
 //  If the password entered does not meet the strong or medium-level requirements, then it is deemed weak
+let message = document.getElementById("message")
+
+// When the user clicks on the password field, show the message box
+pswdInput.onfocus = function() {
+  message.style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+pswdInput.onblur = function() {
+  message.style.display = "none";
+}
 
 pswdInput.onkeyup = function(){
   if(pswdInput.value.match(strongpswd)){
