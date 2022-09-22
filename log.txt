@@ -10,3 +10,5 @@ email
 password
 confirm password
 
+
+Use 8 or more characters with a mix of letters, numbers & symbols
