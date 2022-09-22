@@ -1,21 +1,23 @@
-// Email Validation
-// Method 1
+//! Email Validation
+//* Method 1
+
 // function validateEmail(){
+//   we have to declare thos validateEmail() in email input field as onclick/oninput = "validateEmail"
 
-  //   let emailInput = document.getElementById("email-Input");
-  //   let emailError = document.getElementById("email-Error");
-  //   let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//     let emailInput = document.getElementById("email-Input");
+//     let emailError = document.getElementById("email-Error");
+//     let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
-  //   if(emailInput.value.match(emailFormat)){
-  //     emailError.innerHTML = "";
-  //     return true;
-  //   }else{
-  //     emailError.innerHTML = "Please enter a valid email";
-  //     return false;
-  //   }
-  // }
+//     if(emailInput.value.match(emailFormat)){
+//       emailError.innerHTML = "";
+//       return true;
+//     }else{
+//       emailError.innerHTML = "Please enter a valid email";
+//       return false;
+//     }
+//   }
 
-// Method 2
+//* Method 2
 let emailInput = document.getElementById("email-input");
 let emailError = document.getElementById("email-error");
 let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,7 +28,7 @@ emailInput.oninput = function(){
   }else{
     emailError.innerHTML = "Please enter a valid email";
   }
-  // Incase a user clears the text, the badge is hidden again
+  //* Incase a user clears the text, the badge is hidden again
   if(emailInput.value.length !== 0){
     emailError.style.display = "block";
   }
@@ -35,7 +37,7 @@ emailInput.oninput = function(){
   }
 }
 
-// Passwors strength check
+//! Passwors strength check
 let pswdInput = document.getElementById("pswd-input");
 let pswdStrength = document.getElementById("pswd-strength");
 let strongpswd = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
@@ -45,12 +47,12 @@ let mediumpswd = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]
 //  If the password entered does not meet the strong or medium-level requirements, then it is deemed weak
 let message = document.getElementById("message")
 
-// When the user clicks on the password field, show the message box
+//* When the user clicks on the password field, show the message box
 pswdInput.onfocus = function() {
   message.style.display = "block";
 }
 
-// When the user clicks outside of the password field, hide the message box
+//* When the user clicks outside of the password field, hide the message box
 pswdInput.onblur = function() {
   message.style.display = "none";
 }
@@ -60,10 +62,10 @@ pswdInput.onkeyup = function(){
     pswdStrength.innerHTML = "Password is strong";
     pswdStrength.style.color = "green";
   }else if(pswdInput.value.match(mediumpswd)){
-    pswdStrength.innerHTML = "password is medium";
+    pswdStrength.innerHTML = "Password is medium";
     pswdStrength.style.color = "yellow";
   }else{
-    pswdStrength.innerHTML = "password is weak";
+    pswdStrength.innerHTML = "Password is weak";
     pswdStrength.style.color = "red";
   }
   // Incase a user clears the text, the badge is hidden again
@@ -74,33 +76,20 @@ pswdInput.onkeyup = function(){
     pswdStrength.style.display = "none";
   }
 }
-// Password toggle eye icons
-let eyeIcons = document.getElementById("eye-icons")
-// Password inputfield is already mentioned above
-let eyeIcon1 = document.getElementById("eye-icon1");
-let eyeIcon2 = document.getElementById("eye-icon2")
 
-eyeIcons.onclick = function(){
-  if(pswdInput.type === "password"){
-    // === is used for comparing two variables, but this operator also checks datatype and compares two values.
-    // Compares equality of two operands with their types.
+
+//! Password check
+let pswdCheck = document.getElementById("pswd-check");
+//! let pswdInput = document.getElementById("pswd-input");
+//* Password inputfield is already mentioned above
+let cpswdInput = document.getElementById("cpswd-input");
+
+pswdCheck.onclick = function(){
+  if(pswdInput.type && cpswdInput.type === "password"){
     pswdInput.type = "text";
-    eyeIcon1.style.display = "block";
-    eyeIcon2.style.display = "none";
+    cpswdInput.type = "text";
   }else{
     pswdInput.type = "password";
-    eyeIcon1.style.display = "none";
-    eyeIcon2.style.display = "block";
+    cpswdInput.type = "password";
   }
 }
-
-
-// Toggle eye icon
-// let passwordField  = document.getElementById("pswd-input");
-// let eyeIcon = document.getElementById("eye-icon")
-
-// eyeIcon.addEventListener("click", function(){
-//   this.classList.toggle("fa-eye-slash");
-//   const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
-//   passwordField.setAttribute("type", type);
-// })

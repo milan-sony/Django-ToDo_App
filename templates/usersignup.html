@@ -40,10 +40,6 @@
             <div class="form-group">
               <label for="contact">Create Password</label>
               <input type="password" name="password" placeholder="Create Your Password" class="form-control" id="pswd-input" required autocomplete="off">
-              <span id="eye-icons">
-                <i class="fa-solid fa-eye" id="eye-icon1"></i>
-                <i class="fa-solid fa-eye-slash" id="eye-icon2"></i>
-              </span>
               <span id="pswd-strength"></span>
             </div>
             <!-- <div id="message">
@@ -56,7 +52,11 @@
             </div> -->
             <div class="form-group">
               <label for="contact">Confirm Password</label>
-              <input type="text" name="confirmpassword" placeholder="Confirm Your Password" class="form-control" required autocomplete="off">
+              <input type="password" name="confirmpassword" id="cpswd-input" placeholder="Confirm Your Password" class="form-control" required autocomplete="off">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="pswd-check">
+              <label class="form-check-label" for="pswd-check">Show password</label>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary form-control">
           </form>

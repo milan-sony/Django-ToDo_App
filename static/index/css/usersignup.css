@@ -30,13 +30,3 @@
   margin: 0;
   padding-bottom: 10px;
 }
-#eye-icons{
-  position: absolute;
-  margin-left: 270px;
-  margin-top: -30px;
-  cursor: pointer;
-  /* color: lightgray; */
-}
-#eye-icon1{
-  display: none;
-}
