@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from datetime import datetime, timezone
 from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
 
@@ -13,7 +14,7 @@ from .managers import CustomUserManager
 class CustomUser(AbstractBaseUser, PermissionsMixin):
   name = models.CharField(max_length=150)
   email = models.EmailField(unique=True)
-  date_joined = models.DateTimeField(auto_now_add=True)
+  date_joined = models.DateTimeField(default=datetime.now())
   is_staff = models.BooleanField(default=False)
   is_active = models.BooleanField(default=True)
   is_superuser = models.BooleanField(default=False)
@@ -27,8 +28,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     return self.email
 
   class Meta:
-    verbose_name = _("user")
-    verbose_name_plural = _("users")
+    verbose_name = "user"
+    verbose_name_plural = "users"
     db_table = 'accounts'
   #   abstract = True
   # In this case, (inside AbstractBaseUser) it is defined as abstract = True
