@@ -1,4 +1,4 @@
-//! Email Validation
+//! Email validation
 //* Method 1
 
 // function validateEmail(){
@@ -78,7 +78,7 @@ pswdInput.onkeyup = function(){
 }
 
 
-//! Password check
+//! Password show checkbox
 let pswdCheck = document.getElementById("pswd-check");
 //! let pswdInput = document.getElementById("pswd-input");
 //* Password inputfield is already mentioned above
