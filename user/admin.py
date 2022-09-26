@@ -6,7 +6,7 @@ class CustomUserAdmin(UserAdmin):
     """Define admin model for custom User model with no username field."""
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (('Personal details'), {'fields': ('id','name')}),
+        (('Personal details'), {'fields': ('name',)}),
         (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         (('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
