@@ -12,15 +12,15 @@ def usersignup(request):
   if request.method == 'POST':
     name = request.POST['name']
     email = request.POST['email']
-    password = request.POST.get('password')
-    confirmpassword = request.POST.get('confirmpassword')
+    password = request.POST['password']
+    confirmpassword = request.POST['confirmpassword']
 
     if password == confirmpassword:
       if user.objects.filter(email=email).exists():
         messages.warning(request, "This Email is already exist")
         return redirect('usersignuppage')
       else:
-        user(name=name, email=email, password=make_password(password)).save()
+        user(name=name, email=email, password=make_password(password)).save() # make_password is used to make the password into hashed/encrypted format
         messages.success(request, "Your accout has been successfully created")
         return redirect('userloginpage')
     else:
