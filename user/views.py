@@ -3,7 +3,6 @@ from .models import CustomUser as user
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
-from django.http import HttpResponse
 
 # Create your views here.
 
@@ -30,7 +29,6 @@ def usersignup(request):
   return render(request, "usersignup.html")
 
 #! User login
-
 def userlogin(request):
   if request.method == 'POST':
     email = request.POST['email']
@@ -38,7 +36,7 @@ def userlogin(request):
     user = authenticate(request, email=email, password=password)
     if user is not None:
       login(request, user)
-      return render(request, "userlists.html")
+      return render(request, "todolists.html")
     else:
       messages.warning(request, "Check you username and password")
       return redirect('userlogin')

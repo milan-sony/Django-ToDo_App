@@ -59,6 +59,7 @@
               <label class="form-check-label" for="pswd-check">Show password</label>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary form-control">
+            <p class="text-center pt-3 login-link"><a href="{% url 'userloginpage' %}">Already have an account? Login Here!</a></p>
           </form>
           {% if messages %}
           {% for message in messages %}
