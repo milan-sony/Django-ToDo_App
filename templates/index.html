@@ -18,7 +18,7 @@
   <title>TODO</title>
 </head>
 <body>
-
+<div class="noscript">
   <!--Navbar Section-->
   <section class="navbar-section fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -43,6 +43,17 @@
       </div>
     </nav>
   </section>
+</div>
+
+<noscript>
+  <style type="text/css">
+    .noscript{
+      display: none;
+    }
+  </style>
+  <p align="center"><img src="{% static 'images/alert.gif' %}" style="width: 50px; height:50px; margin-top: 100px;" alt=""></p>
+  <p style="color:red; font-weight: 700;" align="center">Seems like JavaScript is disabled on your device, turn on JavaScript and try again</p>
+</noscript>
 
   <!-- Bootstrap Popper and JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
