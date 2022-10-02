@@ -8,21 +8,43 @@
 </head>
 <body>
   <h1>Home Page</h1>
-  {% if request.user.is_authenticated %}
-  <h3 class="text-center mt-5">Hello{{user.name}}</h3>
-
-
+  <!-- {% if request.user.is_authenticated %} -->
+  
   <form action="{% url 'todolist:addtodolist' %}" method="POST">
+  <h3 class="text-center mt-5">Hello{{user.name}}</h3>
   {% csrf_token %}
   <h1>Add your lists</h1>
   {{todoform.as_p}}
+  <input type="submit" value="ADD">
 
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'error' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% else %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert" id="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
-
+  <!-- List items -->
+  <div class="container">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque odio architecto quis ex consequatur ad, hic obcaecati quam sunt totam dolorem voluptatum, debitis blanditiis laboriosam facilis dignissimos, sequi temporibus.</p>
+  </div>
 
   </form>
-  {% else %}
-  <h3>You are not authenticated to view this page</h3>
-  {% endif %}
+  <!-- {% else %} -->
+  <!-- <h3>You are not authenticated to view this page</h3> -->
+  <!-- {% endif %} -->
 </body>
 </html>
