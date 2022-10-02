@@ -23,7 +23,7 @@ def usersignup(request):
         messages.success(request, "Your accout has been successfully created")
         return redirect('userloginpage')
     else:
-      messages.warning(request, "password fields didn’t match.")
+      messages.warning(request, "password fields didn't match.")
       return redirect('usersignuppage')
 
   return render(request, "usersignup.html")

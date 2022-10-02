@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from user.models import CustomUser
 
 class CustomUserAdmin(UserAdmin):
     """Define admin model for custom User model with no username field."""
