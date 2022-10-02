@@ -21,7 +21,7 @@ def usersignup(request):
         return redirect('usersignuppage')
       else:
         user(name=name, email=email, password=make_password(password)).save() # make_password is used to make the password into hashed/encrypted format
-        messages.success(request, "Your accout has been successfully created")
+        messages.success(request, "Your account has been successfully created")
         return redirect('userloginpage')
     else:
       messages.warning(request, "password fields didn't match.")
