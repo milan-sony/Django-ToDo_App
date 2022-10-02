@@ -4,4 +4,4 @@ from todolist.models import todolists
 class todoform(ModelForm):
   class Meta:
     model = todolists
-    fields = ['todolist', 'status']
+    fields = ['todo', 'status']
