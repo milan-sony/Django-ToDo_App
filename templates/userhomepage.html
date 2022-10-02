@@ -9,9 +9,10 @@
 <body>
   <h1>Home Page</h1>
   <!-- {% if request.user.is_authenticated %} -->
+  <h3 class="text-center mt-5">Hello{{user.name}}</h3>
+  <a href="{% url 'user:userlogout' %}" class="btn btn-primary">logout</a>
   
   <form action="{% url 'todolist:addtodolist' %}" method="POST">
-  <h3 class="text-center mt-5">Hello{{user.name}}</h3>
   {% csrf_token %}
   <h1>Add your lists</h1>
   {{todoform.as_p}}

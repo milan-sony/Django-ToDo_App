@@ -45,3 +45,8 @@ def userlogin(request):
       return redirect('user:userlogin')
   else:
     return render(request, "userlogin.html")
+
+
+def userlogout(request):
+  logout(request)
+  return redirect('/')
