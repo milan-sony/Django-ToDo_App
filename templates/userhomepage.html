@@ -39,7 +39,33 @@
 
   <!-- List items -->
   <div class="container">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque odio architecto quis ex consequatur ad, hic obcaecati quam sunt totam dolorem voluptatum, debitis blanditiis laboriosam facilis dignissimos, sequi temporibus.</p>
+    {% if todolist %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lists</th>
+          <th>Status</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      {% for todos in todolist %}
+      <tbody>
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{todos.todo}}</td>
+            <td>{{todos.status}}</td>
+            <td>{{todos.created_date}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    
+      {% endfor %}
+    {% else %}
+      <p>You have no todolists</p>
+    {% endif %}
+    <!-- <p>{{todolist}}</p> -->
   </div>
 
   </form>

@@ -1,14 +1,14 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from todolist.forms import todoform
+from todolist.models import todolists
 
 # Create your views here.
 
 def userhome_todo(request):
   form = todoform()
-  return render(request, "userhomepage.html", {'todoform':form})
-
-
+  todolist = todolists.objects.all()
+  return render(request, "userhomepage.html", {'todoform':form, 'todolist':todolist})
 
 def addtodolist(request):
   if request.user.is_authenticated:
