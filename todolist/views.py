@@ -9,7 +9,7 @@ def userhome_todo(request):
   form = todoform()
   if request.user.is_authenticated:
     user = request.user
-    todolist = todolists.objects.all(user = user)
+    todolist = todolists.objects.filter(user = user)
     return render(request, "userhomepage.html", {'todoform':form, 'todolist':todolist})
 
 def addtodolist(request):
