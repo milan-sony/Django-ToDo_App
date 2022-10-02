@@ -18,14 +18,14 @@ def usersignup(request):
     if password == confirmpassword:
       if user.objects.filter(email=email).exists():
         messages.warning(request, "User with this Email already exist")
-        return redirect('user:usersignuppage')
+        return redirect('user:usersignup')
       else:
         user(name=name, email=email, password=make_password(password)).save() # make_password is used to make the password into hashed/encrypted format
         messages.success(request, "Your account has been successfully created")
-        return redirect('user:userloginpage')
+        return redirect('user:userlogin')
     else:
       messages.warning(request, "password fields didn't match.")
-      return redirect('user:usersignuppage')
+      return redirect('user:usersignup')
 
   return render(request, "usersignup.html")
 
