@@ -5,6 +5,7 @@ app_name = 'todolist'
 
 urlpatterns = [
   path('userhome_todo', views.userhome_todo, name='userhome_todo'),
+  path('addtodolist', views.addtodolist, name='addtodolist'),
 ]
 
 

@@ -8,15 +8,21 @@
 </head>
 <body>
   <h1>Home Page</h1>
-  <form action="{% url 'addtodolist' %}" method="POST">
-  {% csrf_token %}
   {% if request.user.is_authenticated %}
   <h3 class="text-center mt-5">Hello{{user.name}}</h3>
-  <h1>lists</h1>
+
+
+  <form action="{% url 'todolist:addtodolist' %}" method="POST">
+  {% csrf_token %}
+  <h1>Add your lists</h1>
   {{todoform.as_p}}
+
+
+
+
+  </form>
   {% else %}
   <h3>You are not authenticated to view this page</h3>
   {% endif %}
-  </form>
 </body>
 </html>

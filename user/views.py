@@ -18,14 +18,14 @@ def usersignup(request):
     if password == confirmpassword:
       if user.objects.filter(email=email).exists():
         messages.warning(request, "User with this Email already exist")
-        return redirect('usersignuppage')
+        return redirect('user:usersignuppage')
       else:
         user(name=name, email=email, password=make_password(password)).save() # make_password is used to make the password into hashed/encrypted format
         messages.success(request, "Your account has been successfully created")
-        return redirect('userloginpage')
+        return redirect('user:userloginpage')
     else:
       messages.warning(request, "password fields didn't match.")
-      return redirect('usersignuppage')
+      return redirect('user:usersignuppage')
 
   return render(request, "usersignup.html")
 
@@ -38,10 +38,10 @@ def userlogin(request):
     user = authenticate(request, email=email, password=password)
     if user is not None:
       login(request, user)
-      return redirect('userhome_todo')
+      return redirect('todolist:userhome_todo')
       # return render(request, "userhomepage.html", {'todoform':form})
     else:
       messages.warning(request, "Check you username and password")
-      return redirect('userlogin')
+      return redirect('user:userlogin')
   else:
     return render(request, "userlogin.html")
