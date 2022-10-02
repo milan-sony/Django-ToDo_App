@@ -7,8 +7,10 @@ from todolist.models import todolists
 
 def userhome_todo(request):
   form = todoform()
-  todolist = todolists.objects.all()
-  return render(request, "userhomepage.html", {'todoform':form, 'todolist':todolist})
+  if request.user.is_authenticated:
+    user = request.user
+    todolist = todolists.objects.all(user = user)
+    return render(request, "userhomepage.html", {'todoform':form, 'todolist':todolist})
 
 def addtodolist(request):
   if request.user.is_authenticated:
