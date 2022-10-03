@@ -18,6 +18,7 @@ class CustomUserAdmin(UserAdmin):
     )
     list_display = ('name', 'email', 'is_active')
     search_fields = ('email', 'name')
-    ordering = ('email',)
+    ordering = ('email',) # Without the comma, ('email') is the same as 'email', which is a string, not a tuple.
+    # https://stackoverflow.com/questions/31765584/django-admin-error-admin-e008-the-value-of-fieldsets-must-be-a-list-or-tuple
 
 admin.site.register(CustomUser, CustomUserAdmin)

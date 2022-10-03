@@ -1,7 +1,15 @@
-from django.forms import ModelForm
+from django import forms
 from todolist.models import todolists
 
-class todoform(ModelForm):
+class todoform(forms.ModelForm):
   class Meta:
     model = todolists
-    fields = ['todo', 'status']
+    fields = ['todo']
+    widgets = {
+      'todo': forms.TextInput(attrs={
+        'class': 'form-control',
+        # 'placeholder': 'Enter your name',
+        # 'required autocomplete': 'off',
+      }),
+    }
+
