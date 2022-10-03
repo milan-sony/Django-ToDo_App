@@ -14,6 +14,9 @@ class todolists(models.Model):
   # A new migration is created each time the order of choices changes
   created_date = models.DateTimeField(auto_now_add=True)
 
+  def __str__(self):
+    return self.user
+
   class Meta:
     verbose_name = "todolist"
     verbose_name_plural = "todolists"
