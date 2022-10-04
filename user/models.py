@@ -26,6 +26,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
   def __str__(self):
     return self.email
+  # This is used to change the adminside object name
 
   class Meta:
     verbose_name = "user"

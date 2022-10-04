@@ -8,8 +8,11 @@ class todoform(forms.ModelForm):
     widgets = {
       'todo': forms.TextInput(attrs={
         'class': 'form-control',
-        # 'placeholder': 'Enter your name',
-        # 'required autocomplete': 'off',
+        'placeholder': 'Enter your Tolist here...',
+        'required autocomplete': 'off',
       }),
+    }
+    labels = {
+      'todo': 'Add your ToDo'
     }
 

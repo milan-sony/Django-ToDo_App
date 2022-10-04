@@ -1,11 +1,11 @@
 from django.urls import path,include
 from . import views
 
-app_name = 'todolist'
-
 urlpatterns = [
-  path('userhome_todo', views.userhome_todo, name='userhome_todo'),
-  path('addtodolist', views.addtodolist, name='addtodolist'),
+  path('userhome_todo/', views.userhome_todo, name='userhome_todo'),
+  path('addtodolist/', views.addtodolist, name='addtodolist'),
+  path('status/<int:id>', views.status, name='status'),
+  path('delete_todo/<int:id>', views.delete_todo, name='delete_todo'),
 ]
 
 

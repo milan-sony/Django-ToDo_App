@@ -21,12 +21,13 @@
   <h1>Home Page</h1>
   <!-- {% if request.user.is_authenticated %} -->
   <h3 class="text-center mt-5">Hello{{user.name}}</h3>
-  <a href="{% url 'user:userlogout' %}" class="btn btn-primary">logout</a>
+  <a href="{% url 'userlogout' %}" class="btn btn-primary">logout</a>
   
   <h1>Add your lists</h1>
-  <form class="form-inline" action="{% url 'todolist:addtodolist' %}" method="POST">
+  <form action="{% url 'addtodolist' %}" method="POST">
   {% csrf_token %}
-  {{todoform.as_p}}
+  <input type="text" name="todo">
+  <!-- {{todoform.as_p}} -->
   <input type="submit" class="btn btn-primary" value="ADD">
 
   {% if messages %}
@@ -52,7 +53,20 @@
   <!-- List items -->
 
     {% if todolist %}
-    <table class="table table-borderless">
+    <ul>
+      {% for todos in todolist %}
+          <li>
+            <span><a href="status/{{todos.id}}"><i class="fa-solid fa-circle-check"></i></a></span>
+            <span>{{todos.todo}}</span><br>
+            <span>{{todos.created_date}}</span><br>
+            <span><a href="delete_todo/{{todos.id}}"><i class="fa-solid fa-trash"></i></a></span>
+
+          </li>
+          <!-- <li><span>{{todos.todo}}</span><br><span>{{todos.created_date}}</span></li> -->
+      {% endfor %}
+    </ul>
+  
+    <!-- <table class="table table-borderless">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -71,12 +85,10 @@
           </tr>
         </tbody>
         {% endfor %}
-      </table>
+      </table> -->
     {% else %}
       <p>You have no todolists</p>
     {% endif %}
-    <!-- <p>{{todolist}}</p> -->
-
   </form>
 
   <!-- Bootstrap Popper and JS -->
