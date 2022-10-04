@@ -14,21 +14,23 @@
   <!-- Google Fonts -->
   <link rel="stylesheet" href="{% static 'googlefonts.css' %}">
   <!-- CSS File -->
-  <link rel="stylesheet" href="{% static 'index/css/userlogin.css' %}">
-  <title>LOGIN</title>
+  <link rel="stylesheet" href="{% static 'user/css/userhomepage.css' %}">
+  <title>Home Page</title>
 </head>
 <body>
-  <h1>Home Page</h1>
-  <!-- {% if request.user.is_authenticated %} -->
-  <h3 class="text-center mt-5">Hello{{user.name}}</h3>
+  {% if request.user.is_authenticated %}
+  <h3>Hello{{user.name}}</h3>
   <a href="{% url 'userlogout' %}" class="btn btn-primary">logout</a>
   
   <h1>Add your lists</h1>
-  <form action="{% url 'addtodolist' %}" method="POST">
-  {% csrf_token %}
-  <input type="text" name="todo">
-  <!-- {{todoform.as_p}} -->
-  <input type="submit" class="btn btn-primary" value="ADD">
+
+    <form class="form-inline" action="{% url 'addtodolist' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" name="todo" placeholder="Add your list">
+      </div>
+      <input type="submit" class="btn btn-primary mb-2" value="ADD">
+    </form>
 
   {% if messages %}
     {% for message in messages %}
@@ -53,43 +55,50 @@
   <!-- List items -->
 
     {% if todolist %}
-    <ul>
-      {% for todos in todolist %}
-          <li>
-            <span><a href="status/{{todos.id}}"><i class="fa-solid fa-circle-check"></i></a></span>
-            <span>{{todos.todo}}</span><br>
-            <span>{{todos.created_date}}</span><br>
-            <span><a href="delete_todo/{{todos.id}}"><i class="fa-solid fa-trash"></i></a></span>
 
-          </li>
-          <!-- <li><span>{{todos.todo}}</span><br><span>{{todos.created_date}}</span></li> -->
-      {% endfor %}
-    </ul>
-  
-    <!-- <table class="table table-borderless">
-      <thead>
+    <div class="table-responsive">
+    <table class="table table-borderless">
+      <thead align="center">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"></th>
+          <th scope="col">Status</th>
           <th scope="col">Lists</th>
           <th scope="col">Status</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
           <th scope="col">Date Created</th>
         </tr>
       </thead>
       {% for todos in todolist %}
       <tbody>
+        {% if todos.todo_completed is not False %}
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
-            <td>{{todos.todo}}</td>
-            <td>{{todos.status}}</td>
-            <td>{{todos.created_date}}</td>
+              <td align="center"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check"></i></a></td>
+              <td><s>{{todos.todo}}</s></td>
+              <td align="center">{{todos.todo_completed}}</td>
+              <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen"></i></a></td>
+              <td align="center"><a href="{% url 'delete_todo' todos.id %}"><i class="fa-solid fa-trash"></i></a></td>
+              <td align="center">{{todos.created_date}}</td>
           </tr>
+        {% else %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+            <td align="center"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-circle-check"></i></a></td>
+            <td>{{todos.todo}}</td>
+            <td align="center">{{todos.todo_completed}}</td>
+            <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen"></i></a></td>
+            <td align="center"><a href="{% url 'delete_todo' todos.id %}"><i class="fa-solid fa-trash"></i></a></td>
+            <td align="center">{{todos.created_date}}</td>
+        </tr>
+        {% endif %}
         </tbody>
         {% endfor %}
-      </table> -->
+      </table>
+    </div>
     {% else %}
       <p>You have no todolists</p>
     {% endif %}
-  </form>
 
   <!-- Bootstrap Popper and JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -118,8 +127,8 @@
   <p style="color:red; font-weight: 700;" align="center">Seems like JavaScript is disabled on your device, turn on JavaScript and try again</p>
 </noscript>
 
-  <!-- {% else %} -->
-  <!-- <h3>You are not authenticated to view this page</h3> -->
-  <!-- {% endif %} -->
+  {% else %}
+  <h3>You are not authenticated to view this page</h3>
+  {% endif %}
 </body>
 </html>

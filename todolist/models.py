@@ -5,9 +5,9 @@ from user.models import CustomUser
 # Create your models here.
 class todolists(models.Model):
   user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-  todo = models.CharField(max_length = 50)
+  todo = models.CharField(max_length=255)
   todo_completed = models.BooleanField(default=False)
-  created_date = models.DateTimeField(auto_now_add=True)
+  created_date = models.DateField(auto_now_add=True)
 
   def __str__(self):
     return self.user.email

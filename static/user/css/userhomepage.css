@@ -1,0 +1,10 @@
+:root {
+  --blue-color: #1d3557;
+  --red-color: #e63946;
+  --white-color: #ffffff;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+.status{
+  background-color: lightgrey;
+}
