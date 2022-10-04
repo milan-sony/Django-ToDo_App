@@ -10,86 +10,94 @@
   <!-- Font Awesome CDN -->
   <script src="https://kit.fontawesome.com/259d0ad731.js" crossorigin="anonymous"></script>
   <!-- JQuery CDN -->
-  <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="{% static 'googlefonts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/googlefonts.css' %}">
   <!-- CSS File -->
-  <link rel="stylesheet" href="{% static 'user/css/userhomepage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/userhomepage.css' %}">
   <title>Home Page</title>
 </head>
 <body>
   {% if request.user.is_authenticated %}
-  <h3>Hello{{user.name}}</h3>
-  <a href="{% url 'userlogout' %}" class="btn btn-primary">logout</a>
-  
-  <h1>Add your lists</h1>
 
-    <form class="form-inline" action="{% url 'addtodolist' %}" method="POST">
-      {% csrf_token %}
-      <div class="form-group mx-sm-3 mb-2">
-        <input type="text" class="form-control" name="todo" placeholder="Add your list">
-      </div>
-      <input type="submit" class="btn btn-primary mb-2" value="ADD">
-    </form>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand"><h3>Hello {{user.name}}</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'userlogout' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  {% if messages %}
-    {% for message in messages %}
-      {% if message.tags == 'error' %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
-          {{message}}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="container d-flex justify-content-center align-content-center">
+          <form class="form-inline" action="{% url 'addtodolist' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="text" class="form-control" name="todo" placeholder="Add your lists">
+            </div>
+            <input type="submit" class="btn btn-primary mb-2" value="+">
+          </form>
         </div>
-      {% else %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert" id="alert">
-          {{message}}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'error' %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% else %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert" id="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
 
   <!-- List items -->
 
     {% if todolist %}
-
     <div class="table-responsive">
     <table class="table table-borderless">
-      <thead align="center">
+      <!-- <thead align="center">
         <tr>
           <th scope="col"></th>
           <th scope="col">Status</th>
           <th scope="col">Lists</th>
-          <th scope="col">Status</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
           <th scope="col">Date Created</th>
         </tr>
-      </thead>
+      </thead> -->
       {% for todos in todolist %}
       <tbody>
         {% if todos.todo_completed is not False %}
         <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-              <td align="center"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check"></i></a></td>
+              <td align="left"><b>{{ forloop.counter }}</b></th>
+              <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check"></i></a></td>
               <td><s>{{todos.todo}}</s></td>
-              <td align="center">{{todos.todo_completed}}</td>
               <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen"></i></a></td>
               <td align="center"><a href="{% url 'delete_todo' todos.id %}"><i class="fa-solid fa-trash"></i></a></td>
-              <td align="center">{{todos.created_date}}</td>
+              <td align="right">{{todos.created_date}}</td>
           </tr>
         {% else %}
         <tr>
-          <th scope="row">{{ forloop.counter }}</th>
-            <td align="center"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-circle-check"></i></a></td>
+          <td align="left"><b>{{ forloop.counter }}</b></th>
+            <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-circle-check"></i></a></td>
             <td>{{todos.todo}}</td>
-            <td align="center">{{todos.todo_completed}}</td>
             <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen"></i></a></td>
             <td align="center"><a href="{% url 'delete_todo' todos.id %}"><i class="fa-solid fa-trash"></i></a></td>
-            <td align="center">{{todos.created_date}}</td>
+            <td align="right">{{todos.created_date}}</td>
         </tr>
         {% endif %}
         </tbody>
@@ -105,8 +113,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 
-  <!-- JavaScrip File -->
-  <script src="{% static 'index/js/userlogin.js' %}"></script>
+  <!-- Custom JavaScrip File -->
 
   <!-- JQuery program to hide alert messages automatically -->
   <script>
