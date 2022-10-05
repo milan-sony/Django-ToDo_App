@@ -1,0 +1,53 @@
+:root {
+  --blue-color: #1d3557;
+  --red-color: #e63946;
+  --white-color: #ffffff;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+.edit-box{
+  margin-top: 50px;
+}
+.card-header h3{
+  color: var(--blue-color);
+  font-family: var(--primary-font);
+}
+.card-header span{
+  color: lightsteelblue;
+}
+.edit-btn{
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  font-family: var(--secondary-font);
+  border-radius: 10px;
+}
+.edit-btn:hover{
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+.todo-input{
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+.todo-input::placeholder{
+  font-family: var(--secondary-font);
+  color: var(--blue-color);
+}
+.todo-input:focus{
+  background-color: lightsteelblue;
+  color: var(--blue-color);  
+  font-family: var(--secondary-font);
+}
+.cancel-btn{
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  width: 100px;
+  border-radius: 10px;
+  font-family: var(--secondary-font);
+}
+.cancel-btn:hover{
+  background-color: var(--red-color);
+  color: var(--white-color);
+}

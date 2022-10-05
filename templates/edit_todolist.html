@@ -14,31 +14,34 @@
   <!-- Google Fonts -->
   <link rel="stylesheet" href="{% static 'css/googlefonts.css' %}">
   <!-- Custom CSS file -->
-  <link rel="stylesheet" href="{% static 'css/userhomepage.css' %}">
-  <title>LOGIN</title>
+  <link rel="stylesheet" href="{% static 'css/edit_todolist.css' %}">
+  <title>Edit todo</title>
 </head>
 <body>
 
   {% if todolist %}
-  <div class="container">
 
-    <h1>Edit ToDo</h1>
-    <p>Edit {{todolist.todo}}</p>
-    <a href="{% url 'userhome_todo' %}">Cancel</a>
-    <form action="#" method="POST">
-      {% csrf_token %}
-      <input type="text" name="newtodo" value="{{todolist.todo}}">
-      <input type="submit" value="Update">
-    </form>
-    
+  <div class="container edit-box">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>Edit todo <span>{{todolist.todo}}</span></h3>
+    </div>
+    <div class="card-body">
+      <form class="form-inline justify-content-center pt-3" action="#" method="POST">
+        {% csrf_token %}
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control todo-input" name="newtodo" value="{{todolist.todo}}" autocomplete="off">
+        </div>
+        <input type="submit" class="btn edit-btn mb-2" value="Edit">
+      </form>
+      <a href="{% url 'userhome_todo' %}" class="btn cancel-btn mt-3">Cancel</a>
+    </div>
   </div>
+</div>
 
   {% else %}
-  <p>Something went wrong</p>
+  <p aligin="center">Something went wrong, please try again</p>
   {% endif %}
-
-
-
 
   <!-- Bootstrap Popper and JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -57,13 +60,13 @@
   </script>
 
   <noscript>
-  <style type="text/css">
-    .noscript{
-      display: none;
-    }
-  </style>
-  <p align="center"><img src="{% static 'images/alert.gif' %}" style="width: 50px; height:50px; margin-top: 100px;" alt=""></p>
-  <p style="color:red; font-weight: 700;" align="center">Seems like JavaScript is disabled on your device, turn on JavaScript and try again</p>
+    <style type="text/css">
+      .noscript{
+        display: none;
+      }
+    </style>
+    <p align="center"><img src="{% static 'images/alert.gif' %}" style="width: 50px; height:50px; margin-top: 100px;" alt=""></p>
+    <p style="color:red; font-weight: 700;" align="center">Seems like JavaScript is disabled on your device, turn on JavaScript and try again</p>
   </noscript>
 
 </body>

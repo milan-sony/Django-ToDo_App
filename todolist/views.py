@@ -47,7 +47,7 @@ def delete_todo(request, id):
   todolist = todolists.objects.get(id=id)
   if request.method == 'POST':
     todolist.delete()
-    messages.warning(request, "Todolist deleted")
+    messages.success(request, "Todolist deleted")
     return redirect('userhome_todo')
   else:
     return render(request, "confirm_delete.html",{'todolist':todolist}) 

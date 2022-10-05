@@ -1,0 +1,30 @@
+:root {
+  --blue-color: #1d3557;
+  --red-color: #e63946;
+  --white-color: #ffffff;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+.edit-box{
+  margin-top: 50px;
+}
+.card-header h3{
+  color: var(--blue-color);
+  font-family: var(--primary-font);
+}
+.card-header span{
+  color: var(--red-color);
+}
+.card-body p{
+  font-family: var(--secondary-font);
+}
+.delete-btn{
+  margin-right: 30px;
+  border-radius: 10px;
+  font-family: var(--secondary-font);
+}
+.cancel-btn{
+  border-radius: 10px;
+  width: 100px;
+  font-family: var(--secondary-font);
+}

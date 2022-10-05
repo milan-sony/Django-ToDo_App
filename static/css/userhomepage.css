@@ -79,8 +79,6 @@
 .add-btn{
   background-color: var(--blue-color);
   color: var(--white-color);
-  outline: none !important;
-  border: none !important;
   border-radius: 10px;
 }
 .add-btn:hover{

@@ -50,7 +50,7 @@
           <form class="form-inline" action="{% url 'addtodolist' %}" method="POST">
             {% csrf_token %}
             <div class="form-group mx-sm-3 mb-2">
-              <input type="text" class="form-control todo-input" name="todo" placeholder="Add your lists" required autocomplete="off">
+              <input type="text" class="form-control todo-input" name="todo" placeholder="Add your todo" required autocomplete="off">
             </div>
             <input type="submit" class="btn add-btn mb-2" value="+">
           </form>
