@@ -15,35 +15,35 @@
   <link rel="stylesheet" href="{% static 'css/googlefonts.css' %}">
   <!-- Custom CSS file -->
   <link rel="stylesheet" href="{% static 'css/userlogin.css' %}">
-  <title>LOGIN</title>
+  <title>Login</title>
 </head>
 <body>
 <div class="noscript">
-  <div class="container">
+  <div class="container mt-4">
     <div class="col-md-4 offset-md-4">
       <div class="card">
         <div class="card-header">
-          <h3>LOGIN Here</h3>
+          <h3>Login</h3>
         </div>
         <div class="card-body">
           <form action="{% url 'userlogin' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
-              <label for="email">Enter your Email</label>
-              <input type="email" class="form-control" name="email" id="email-input" placeholder="Enter your Email" required autocomplete="off">
+              <label for="email" class="label-tag">Enter your Email</label>
+              <input type="email" class="form-control form-input" name="email" id="email-input" placeholder="Enter your Email" required autocomplete="off">
               <span id="email-error"></span>
             </div>
             <div class="form-group">
-              <label for="contact">Enter your password</label>
-              <input type="password" name="password" placeholder="Enter your password" class="form-control" id="pswd-input" required autocomplete="off">
+              <label for="contact" class="label-tag">Enter your password</label>
+              <input type="password" name="password" placeholder="Enter your password" class="form-control form-input" id="pswd-input" required autocomplete="off">
               <span id="pswd-strength"></span>
             </div>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="pswd-check">
-              <label class="form-check-label" for="pswd-check">Show password</label>
+              <label class="form-check-label label-tag" for="pswd-check">Show password</label>
             </div>
-            <input type="submit" value="Submit" class="btn btn-primary form-control">
-            <p class="text-center pt-3 signup-link"><a href="{% url 'usersignuppage' %}">Don't have an account? Signup Here!</a></p>
+            <input type="submit" value="Submit" class="btn submit-btn form-control">
+            <p class="text-center pt-3 signup-link"><a href="{% url 'usersignuppage' %}" class="signup-link">Don't have an account? Signup Here!</a></p>
           </form>
           {% if messages %}
           {% for message in messages %}
