@@ -11,7 +11,8 @@ def userhome_todo(request):
     todolist = todolists.objects.filter(user = user)
     return render(request, "userhomepage.html", {'todolist':todolist})
   else:
-    return render(request, "404.html")
+    messages.warning(request, "Please login")
+    return render(request, "userlogin.html")
 
 # Add todolist
 def addtodolist(request):
