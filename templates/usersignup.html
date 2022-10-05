@@ -20,7 +20,7 @@
 <body>
 
 <div class="noscript">
-  <div class="container">
+  <div class="container mt-4">
     <div class="col-md-4 offset-md-4">
       <div class="card">
         <div class="card-header">
@@ -30,37 +30,29 @@
           <form action="{% url 'usersignup' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Enter your name" required autocomplete="off">
+              <label for="name" class="label-tag">Name</label>
+              <input type="text" class="form-control form-input" name="name" placeholder="Enter your name" required autocomplete="off">
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" id="email-input" placeholder="Enter your Email" required autocomplete="off">
+              <label for="email" class="label-tag">Email</label>
+              <input type="email" class="form-control form-input" name="email" id="email-input" placeholder="Enter your Email" required autocomplete="off">
               <span id="email-error"></span>
             </div>
             <div class="form-group">
-              <label for="contact">Create Password</label>
-              <input type="password" name="password" placeholder="Create your password" class="form-control" id="pswd-input" required autocomplete="off">
+              <label for="contact" class="label-tag">Create Password</label>
+              <input type="password" name="password" placeholder="Create your password" class="form-control form-input" id="pswd-input" required autocomplete="off">
               <span id="pswd-strength"></span>
             </div>
-            <!-- <div id="message">
-              <h6>Password Hints:</h6>
-              <p><i class="fa-solid fa-o"></i>&nbsp Atleast one lowercase letter</p>
-              <p><i class="fa-solid fa-o"></i>&nbsp Atleast one uppercase letter</p>
-              <p><i class="fa-solid fa-o"></i>&nbsp Atleast one number</p>
-              <p><i class="fa-solid fa-o"></i>&nbsp Atleast one special character</p>
-              <p><i class="fa-solid fa-o"></i>&nbsp Minimum 8 characters</p>
-            </div> -->
             <div class="form-group">
-              <label for="contact">Confirm Password</label>
-              <input type="password" name="confirmpassword" id="cpswd-input" placeholder="Confirm your password" class="form-control" required autocomplete="off">
+              <label for="contact" class="label-tag">Confirm Password</label>
+              <input type="password" name="confirmpassword" id="cpswd-input" placeholder="Confirm your password" class="form-control form-input" required autocomplete="off">
             </div>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="pswd-check">
-              <label class="form-check-label" for="pswd-check">Show password</label>
+              <label class="form-check-label label-tag" for="pswd-check">Show password</label>
             </div>
-            <input type="submit" value="Submit" class="btn btn-primary form-control">
-            <p class="text-center pt-3 login-link"><a href="{% url 'userloginpage' %}">Already have an account? Login Here!</a></p>
+            <input type="submit" value="Submit" class="btn submit-btn form-control">
+            <p class="text-center pt-3 login-link"><a href="{% url 'userloginpage' %}" class="login-link">Already have an account? Login Here!</a></p>
           </form>
           {% if messages %}
           {% for message in messages %}

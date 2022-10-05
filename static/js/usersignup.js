@@ -1,23 +1,4 @@
 //! Email validation
-//* Method 1
-
-// function validateEmail(){
-//   we have to declare thos validateEmail() in email input field as onclick/oninput = "validateEmail"
-
-//     let emailInput = document.getElementById("email-Input");
-//     let emailError = document.getElementById("email-Error");
-//     let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  
-//     if(emailInput.value.match(emailFormat)){
-//       emailError.innerHTML = "";
-//       return true;
-//     }else{
-//       emailError.innerHTML = "Please enter a valid email";
-//       return false;
-//     }
-//   }
-
-//* Method 2
 let emailInput = document.getElementById("email-input");
 let emailError = document.getElementById("email-error");
 let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

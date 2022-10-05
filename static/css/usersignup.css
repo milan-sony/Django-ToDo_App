@@ -8,28 +8,65 @@
 .card-header h3{
   text-align: center;
   text-transform: uppercase;
-  color: red;
+  color: var(--blue-color);
+  font-family: var(--primary-font);
+  font-size: 30px;
+  font-weight: 500;
 }
-#email-error{
-  color: red;
-  font-size: 10px;
+.label-tag{
+  font-size: 15px;
+  font-weight: 200;
+  font-family: var(--primary-font);
+  color: var(--blue-color);
 }
-
-/* The message box is shown when the user clicks on the password field */
-#message {
-  display:none;
-  margin: 0;
-  background: #f1f1f1;
-  padding: 10px;
+.form-input{
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: lightgrey;
+  font-size: 12px;
+  font-weight: 500;
 }
-#message h6{
-  margin: 0;
-  padding-bottom: 10px;
+.form-input::placeholder{
+  font-family: var(--secondary-font);
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
 }
-#message p{
-  margin: 0;
-  padding-bottom: 10px;
+.form-input:focus{
+  background-color: lightsteelblue;
+  color: var(--blue-color);  
+  font-family: var(--secondary-font);
+  font-size: 12px;
+  font-weight: 500;
+}
+.submit-btn{
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  font-size: 15px;
+  border-radius: 10px;
+  font-family: var(--secondary-font);
+}
+.submit-btn:hover{
+  background-color: var(--red-color);
+  color: var(--white-color);
 }
 .login-link{
   margin: 0;
+  color: var(--blue-color);
+  font-family: var(--secondary-font);
+  font-size: 15px;
+}
+.login-link:hover{
+  color: var(--red-color);
+  text-decoration: none;
+}
+
+#email-error{
+  color: red;
+  font-size: 13px;
+}
+#pswd-strength{
+  color: red;
+  font-size: 13px;
 }
