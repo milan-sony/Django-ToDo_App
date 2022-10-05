@@ -1,17 +1,19 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
-import todolist
-from todolist.forms import todoform
 from todolist.models import todolists
 
 # Create your views here.
 
+# User home
 def userhome_todo(request):
   if request.user.is_authenticated:
     user = request.user
     todolist = todolists.objects.filter(user = user)
     return render(request, "userhomepage.html", {'todolist':todolist})
+  else:
+    return render(request, "404.html")
 
+# Add todolist
 def addtodolist(request):
   if request.method == 'POST':
     todo = request.POST['todo']
@@ -23,6 +25,7 @@ def addtodolist(request):
     messages.warning(request, "Something went wrong please try again")
     return redirect('userhome_todo')
 
+# Edit todolist
 def edit_todo(request, id):
   todolist = todolists.objects.get(id=id)
   if request.method == 'POST':
@@ -34,7 +37,7 @@ def edit_todo(request, id):
   else:
     return render(request, "edit_todolist.html",{'todolist':todolist}) 
 
-
+# Update status of todolist
 def status_update(request, id):
   todolist = todolists.objects.get(id=id)
   current_status = todolist.todo_completed
@@ -42,7 +45,7 @@ def status_update(request, id):
   todolist.save()
   return redirect('userhome_todo') 
 
-
+# Delete todolist
 def delete_todo(request, id):
   todolist = todolists.objects.get(id=id)
   if request.method == 'POST':

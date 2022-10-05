@@ -3,11 +3,10 @@ from user.models import CustomUser as user
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
-from todolist.forms import todoform
 
 # Create your views here.
 
-#! User signup
+# User signup
 def usersignup(request):
   if request.method == 'POST':
     name = request.POST['name']
@@ -27,11 +26,11 @@ def usersignup(request):
       messages.warning(request, "password fields didn't match")
       return redirect('usersignup')
 
-  return render(request, "usersignup.html")
+  else:
+    return render(request, "usersignup.html")
 
-#! User login
+# User login
 def userlogin(request):
-  # form = todoform()
   if request.method == 'POST':
     email = request.POST['email']
     password = request.POST['password']
@@ -39,14 +38,14 @@ def userlogin(request):
     if user is not None:
       login(request, user)
       return redirect('userhome_todo')
-      # return render(request, "userhomepage.html", {'todoform':form})
     else:
       messages.warning(request, "Check you username and password")
       return redirect('userlogin')
   else:
     return render(request, "userlogin.html")
 
-
+# User logout
 def userlogout(request):
-  logout(request)
-  return redirect('/')
+  if request.user.is_authenticated:
+    logout(request)
+    return redirect('/')

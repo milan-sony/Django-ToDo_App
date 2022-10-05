@@ -1,0 +1,16 @@
+:root {
+  --blue-color: #1d3557;
+  --red-color: #e63946;
+  --white-color: #ffffff;
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+h1{
+  font-size: 30px;
+  font-weight: 700;
+}
+p{
+  font-size: 15px;
+  font-weight: 500;
+  color: red;
+}
