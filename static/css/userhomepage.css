@@ -5,6 +5,127 @@
   --primary-font: 'Poppins', sans-serif;
   --secondary-font: 'Roboto', sans-serif;
 }
-.status{
+/* Navbar */
+.navbar {
+  background-color: var(--blue-color);
+}
+.navbar-brand h1 {
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--red-color);
+  font-family: var(--primary-font);
+}
+.navbar-brand span {
+  margin: 0;
+  text-transform: lowercase;
+  color: var(--white-color);
+  font-family: var(--primary-font);
+}
+.nav-link {
+  font-weight: 500;
+  font-family: var(--secondary-font);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--white-color) !important;
+}
+.nav-link:hover {
+  color: var(--red-color) !important;
+}
+.navbar .navbar-toggler {
+  outline: none !important;
+  border: none !important;
+}
+.fa-bars {
+  color: var(--red-color);
+}
+
+/* Name */
+.name{
+  color: var(--red-color);
+  font-family: var(--primary-font);
+}
+.name h1{
+  margin: 0;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  font-family: var(--primary-font);
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 500;
+}
+.name span{
+  text-transform: capitalize;
+}
+
+/* Form */
+.todo-input{
+  outline: none;
+  border: none;
+  border-radius: 10px;
   background-color: lightgrey;
+}
+.todo-input::placeholder{
+  font-family: var(--primary-font);
+  color: var(--blue-color);
+}
+.todo-input:focus{
+  background-color: lightsteelblue;
+  color: var(--blue-color);  
+  font-family: var(--primary-font);
+}
+.add-btn{
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  outline: none !important;
+  border: none !important;
+  border-radius: 10px;
+}
+.add-btn:hover{
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+/* Table */
+table {
+  padding-top: 25px;
+  border-collapse: separate !important;
+  border-spacing: 0 15px !important;
+}
+.task-count{
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--secondary-font);
+
+}
+.todo-list{
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--primary-font);
+}
+.date{
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--secondary-font);
+}
+.status-icon{
+  font-size: 20px;
+  color: var(--blue-color);
+}
+.status-icon:hover{
+  color:green;
+}
+.pen-icon{
+  color: var(--blue-color);
+}
+.pen-icon:hover{
+  color: var(--red-color);
+}
+.trash-icon{
+  color: var(--red-color);
+}
+.trash-icon:hover{
+  color: var(--blue-color);
 }

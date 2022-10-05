@@ -17,7 +17,7 @@ def addtodolist(request):
     todo = request.POST['todo']
     todolist = todolists(user=request.user, todo=todo)
     todolist.save()
-    messages.warning(request, "Your list is added")
+    messages.success(request, "New list is added")
     return redirect('userhome_todo')
   else:
     messages.warning(request, "Something went wrong please try again")
@@ -29,7 +29,7 @@ def edit_todo(request, id):
     newtodo = request.POST['newtodo']
     todolist.todo = newtodo
     todolist.save()
-    messages.warning(request, "Todolist updated")
+    messages.success(request, "Todolist updated")
     return redirect('userhome_todo')
   else:
     return render(request, "edit_todolist.html",{'todolist':todolist}) 
@@ -40,7 +40,6 @@ def status_update(request, id):
   current_status = todolist.todo_completed
   todolist.todo_completed = not current_status 
   todolist.save()
-  messages.warning(request, "Status updated")
   return redirect('userhome_todo') 
 
 
