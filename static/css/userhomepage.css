@@ -1,9 +1,23 @@
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #ffffff;
+}
 :root {
   --blue-color: #1d3557;
   --red-color: #e63946;
   --white-color: #ffffff;
   --primary-font: 'Poppins', sans-serif;
   --secondary-font: 'Roboto', sans-serif;
+}
+/* Scrollbar Color Change */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-color);
 }
 /* Navbar */
 .navbar {
