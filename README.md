@@ -1,9 +1,7 @@
 # Mytodo
-
 Myto is a simple todo application build with django
 
 ## Run Locally
-
 You will need to install Python on  you system. Head over to https://www.python.org/downloads/ to download python.
 (Dont Forget to Tick Add to Path while installing Python)
 
