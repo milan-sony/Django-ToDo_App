@@ -1,6 +1,13 @@
 # Mytodo
 
-Myto is a simple todo application build with django
+Mytodo is a simple todo application build with django
+
+## Features
+
+- Simple UI
+- Multi-user login
+- CRUD functionalities for todo list
+- Status update (pending/completed)
 
 ## Run Locally
 
