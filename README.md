@@ -5,9 +5,10 @@ Mytodo is a simple todo application build with django
 ## Features
 
 - Simple UI
+- Responsive
 - Multi-user login
-- CRUD functionalities for todo list
-- Status update (pending/completed)
+- CRUD functionalities for todolists
+- Status update for todolists (pending/completed)
 
 ## Run Locally
 
