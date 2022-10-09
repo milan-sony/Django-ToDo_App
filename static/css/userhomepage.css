@@ -147,3 +147,10 @@ table {
   font-weight: 500;
   font-family: var(--blue-color);
 }
+.page-link{
+  color: var(--blue-color) !important;
+  font-family: var(--secondary-font);
+}
+.page-link:hover{
+  color: var(--red-color) !important;
+}

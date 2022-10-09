@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from todolist.models import todolists
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -8,8 +9,11 @@ from todolist.models import todolists
 def userhome_todo(request):
   if request.user.is_authenticated:
     user = request.user
-    todolist = todolists.objects.filter(user = user)
-    return render(request, "userhomepage.html", {'todolist':todolist})
+    todolist = todolists.objects.filter(user = user) # Get data from the model
+    paginator = Paginator(todolist, 5) # Using paginator function set limit to page
+    page_number = request.GET.get('page') # Getting page number from url named page
+    todolistfinaldata = paginator.get_page(page_number)
+    return render(request, "userhomepage.html", {'todolist':todolistfinaldata})
   else:
     messages.warning(request, "Please login")
     return render(request, "userlogin.html")

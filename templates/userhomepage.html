@@ -90,7 +90,6 @@
       <tbody>
         {% if todos.todo_completed is not False %}
         <tr class="table-success">
-              <td align="left" class="task-count">{{ forloop.counter }}</th>
               <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check status-icon"></i></a></td>
               <td class="todo-list"><s>{{todos.todo}}</s></td>
               <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen pen-icon"></i></a></td>
@@ -99,7 +98,6 @@
           </tr>
         {% else %}
         <tr>
-          <td align="left" class="task-count">{{ forloop.counter }}</th>
             <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-circle-check status-icon"></i></a></td>
             <td class="todo-list">{{todos.todo}}</td>
             <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen pen-icon"></i></a></td>
@@ -110,7 +108,25 @@
         </tbody>
         {% endfor %}
       </table>
-    </div>
+    </div> 
+    
+    <!-- Pagination link -->
+    <!-- https://docs.djangoproject.com/en/4.1/topics/pagination/#paginating-a-listview -->
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-sm justify-content-center">
+        <li class="page-item disabled mr-2"><a class="page-link">Page {{ todolist.number }} of {{ todolist.paginator.num_pages }}</a></li>
+        {% if todolist.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ todolist.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% if todolist.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ todolist.next_page_number }}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ todolist.paginator.num_pages }}">Last</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
     {% else %}
       <p align="center" class="no-todolist">You have no todolists</p>
     {% endif %}
