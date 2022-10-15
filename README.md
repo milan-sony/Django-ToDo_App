@@ -1,6 +1,6 @@
 # todo
 
-Mytodo is a simple todo application build with django
+This is a simple todo application build with django
 
 ## Features
 
