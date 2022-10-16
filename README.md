@@ -1,4 +1,4 @@
-# todo
+# django-todoapp
 
 This is a simple todo application build with django
 
