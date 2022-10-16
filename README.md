@@ -9,7 +9,7 @@ This is a simple todo application build with django
 - Multi-user login
 - CRUD functionalities for todolists
 - Status update for todolists (pending/completed)
-- Todo list data encrypted using [django-cryptography](https://github.com/georgemarshall/django-cryptography)
+- Todo list data is encrypted using [django-cryptography](https://github.com/georgemarshall/django-cryptography)
 
 ## Run Locally
 
