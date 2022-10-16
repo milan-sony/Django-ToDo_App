@@ -24,10 +24,10 @@ def addtodolist(request):
     todo = request.POST['todo']
     todolist = todolists(user=request.user, todo=todo)
     todolist.save()
-    messages.success(request, "New list is added")
+    messages.success(request, "New todo added to the list")
     return redirect('userhome_todo')
   else:
-    messages.warning(request, "Something went wrong please try again")
+    messages.warning(request, "Something went wrong please try again !")
     return redirect('userhome_todo')
 
 # Edit todolist
@@ -37,7 +37,7 @@ def edit_todo(request, id):
     newtodo = request.POST['newtodo']
     todolist.todo = newtodo
     todolist.save()
-    messages.success(request, "Todolist updated")
+    messages.success(request, "Todolist updated successfully")
     return redirect('userhome_todo')
   else:
     return render(request, "edit_todolist.html",{'todolist':todolist}) 
@@ -55,7 +55,7 @@ def delete_todo(request, id):
   todolist = todolists.objects.get(id=id)
   if request.method == 'POST':
     todolist.delete()
-    messages.success(request, "Todolist deleted")
+    messages.success(request, "Todolist deleted successfully")
     return redirect('userhome_todo')
   else:
     return render(request, "confirm_delete.html",{'todolist':todolist}) 

@@ -54,7 +54,7 @@
             <div class="form-group mx-sm-3 mb-2">
               <input type="text" class="form-control todo-input" name="todo" placeholder="Add your todo" required autocomplete="off" onkeydown="limit(this);" onkeyup="limit(this);">
             </div>
-            <input type="submit" class="btn add-btn mb-2" value="+" title="Add list">
+            <input type="submit" class="btn add-btn mb-2" value="+" title="Add todo">
           </form>
         </div>
 
@@ -92,7 +92,7 @@
       <tbody>
         {% if todos.todo_completed is not False %}
         <tr class="table-success">
-              <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check status-icon" title="Update status"></i></a></td>
+              <td align="left"><a href="{% url 'status_update' todos.id %}"><i class="fa-solid fa-check status-icon" title="Update status"></i></a><span class="status-span">&nbsp Completed</span></td>
               <td class="todo-list"><s>{{todos.todo}}</s></td>
               <td align="center"><a href="{% url 'edit_todo' todos.id %}"><i class="fa-solid fa-pen pen-icon" title="Edit"></i></a></td>
               <td align="center"><a href="{% url 'delete_todo' todos.id %}"><i class="fa-solid fa-trash trash-icon" title="Delete"></i></a></td>
