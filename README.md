@@ -5,7 +5,7 @@ This is a simple todo application build with django
 ## Features
 
 - Simple UI
-- Responsive
+- Responsive design
 - Multi-user login
 - CRUD functionalities for todolists
 - Status update for todolists (pending/completed)
