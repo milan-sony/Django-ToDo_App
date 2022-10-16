@@ -20,13 +20,13 @@ Once you have downloaded Python on your system,
 run the following command inside your terminal
 
 ```bash
-  git clone https://github.com/milan-sony/todo.git
+  git clone https://github.com/milan-sony/django-todoapp.git
 ```
 
 Then go to the project folder
 
 ```bash
-  cd Mytodo
+  cd django-todoapp
 ```
 
 (This is optional, but strongly recommended) Make a virtual environment
