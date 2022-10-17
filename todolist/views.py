@@ -8,12 +8,16 @@ from django.core.paginator import Paginator
 # User home
 def userhome_todo(request):
   if request.user.is_authenticated:
-    user = request.user
-    todolist = todolists.objects.filter(user = user) # Get data from the model
+    user_obj = request.user
+    # pending tasks
+    todos_pending = todolists.objects.filter(user = user_obj)
+    todos_pending_count = todos_pending.filter(todo_completed = 0).count()
+    # pagination
+    todolist = todolists.objects.filter(user = user_obj) # Get data from the model
     paginator = Paginator(todolist, 5) # Using paginator function set limit to page
     page_number = request.GET.get('page') # Getting page number from url named page
-    todolistfinaldata = paginator.get_page(page_number)
-    return render(request, "userhomepage.html", {'todolist':todolistfinaldata})
+    todolistdata = paginator.get_page(page_number)
+    return render(request, "userhomepage.html", {'todolist':todolistdata, 'todo_pending':todos_pending_count})
   else:
     messages.warning(request, "Please login")
     return render(request, "userlogin.html")

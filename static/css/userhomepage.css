@@ -37,16 +37,28 @@ body {
   color: var(--white-color);
   font-family: var(--primary-font);
 }
-.nav-link {
+.navbar-link {
   font-weight: 500;
   font-family: var(--secondary-font);
-  font-size: 15px;
-  text-transform: uppercase;
+  font-size: 16px;
+  text-transform: capitalize;
   letter-spacing: 0.5px;
+  color: var(--blue-color) !important;
+}
+.navbar-link:hover {
+  color: var(--red-color) !important;
+}
+.welcomename{
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--primary-font);
+  text-transform: capitalize;
   color: var(--white-color) !important;
 }
-.nav-link:hover {
+.welcomename span{
   color: var(--red-color) !important;
+  text-transform: capitalize;
+
 }
 .navbar .navbar-toggler {
   outline: none !important;
@@ -55,26 +67,18 @@ body {
 .fa-bars {
   color: var(--red-color);
 }
-
-/* Name */
-.name{
-  color: var(--red-color);
-  font-family: var(--primary-font);
-}
-.name h1{
+.todo-complete{
   margin: 0;
-  padding-top: 100px;
-  padding-bottom: 20px;
+  padding-top: 20px;
+  color: var(--blue-color);
+  font-size: 15px;
   font-family: var(--primary-font);
-  text-transform: capitalize;
-  font-size: 20px;
-  font-weight: 500;
-}
-.name span{
-  text-transform: capitalize;
 }
 
 /* Form */
+.todo-form{
+  margin-top: 100px;
+}
 .todo-input{
   outline: none;
   border: none;
@@ -154,4 +158,11 @@ table {
 }
 .page-link:hover{
   color: var(--red-color) !important;
+}
+
+/* Custom Media Query */
+@media (max-width: 425px) {
+  .todo-complete {
+    text-align: center;
+  }
 }
