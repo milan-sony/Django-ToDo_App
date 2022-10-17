@@ -79,6 +79,10 @@ body {
 .todo-form{
   margin-top: 100px;
 }
+.form-tag{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .todo-input{
   outline: none;
   border: none;
@@ -152,6 +156,9 @@ table {
   font-weight: 500;
   font-family: var(--blue-color);
 }
+.page-nav{
+  padding-top: 15px;
+}
 .page-link{
   color: var(--blue-color) !important;
   font-family: var(--secondary-font);
@@ -164,5 +171,12 @@ table {
 @media (max-width: 425px) {
   .todo-complete {
     text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .form-tag {
+    display: flex;
+    justify-content: center;
   }
 }
