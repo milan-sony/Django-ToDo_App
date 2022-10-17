@@ -11,6 +11,10 @@ This is a simple todo application build with django
 - Status update for todolists (pending/completed)
 - Todo list data is encrypted using [django-cryptography](https://github.com/georgemarshall/django-cryptography)
 
+## Screenshot
+
+<img src="screenshots/homepage.png">
+
 ## Run Locally
 
 You will need to install Python on  you system. Head over to https://www.python.org/downloads/ to download python.
